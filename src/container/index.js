@@ -33,20 +33,20 @@ function Container() {
 	}, []);
 
 	const toggleIsCompute = () => {
-		setIsComputed(true);
+		setIsComputed(!isComputed);
 	};
 
 	return (
 		<Grid container>
 			<Grid container spacing={3}>
-				<Grid item xs={6}>
+				<Grid item xs={12} md={6}>
 					<CustomList
 						label="Add list A items"
 						handleClick={(item) => handleListClick(item, 'A')}
 						listData={listAItems}
 					/>
 				</Grid>
-				<Grid item xs={6}>
+				<Grid item xs={12} md={6}>
 					<CustomList
 						label="Add list B items"
 						handleClick={(item) => handleListClick(item, 'B')}
@@ -57,14 +57,14 @@ function Container() {
 			<Grid item xs={12}>
 				<div className={classes.buttonStyle}>
 					<Button variant="contained" color="primary" onClick={toggleIsCompute}>
-						Compute
+						Toggle Result Visiblity
 					</Button>
 				</div>
 			</Grid>
 			{isComputed && (
 				<Grid>
 					<Grid container spacing={3}>
-						<Grid item xs={3}>
+						<Grid item md={3} xs={12}>
 							<CheckItems
 								title="Items only in List A"
 								ListAData={listAItems}
@@ -72,7 +72,7 @@ function Container() {
 								callback={arrayDiff}
 							/>
 						</Grid>
-						<Grid item xs={3}>
+						<Grid item md={3} xs={12}>
 							<CheckItems
 								title="Items only in List B"
 								ListAData={listBItems}
@@ -80,7 +80,7 @@ function Container() {
 								callback={arrayDiff}
 							/>
 						</Grid>
-						<Grid item xs={3}>
+						<Grid item md={3} xs={12}>
 							<CheckItems
 								title="Items in both A and B"
 								ListAData={listAItems}
@@ -88,7 +88,7 @@ function Container() {
 								callback={arrayIntersection}
 							/>
 						</Grid>
-						<Grid item xs={3}>
+						<Grid item md={3} xs={12}>
 							<CheckItems
 								title="Items combined A and B (uniquely)"
 								ListAData={listAItems}
